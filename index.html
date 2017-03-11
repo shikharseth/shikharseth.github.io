@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Articles Web App</title>
+    <meta property="browserRequirements" content="requires HTML5 support" />
+    <meta property="storageRequirements" content="Local Storage of browser" />
+    <script>'use strict';</script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <script src="src/model/Article.js"></script>
+	<style>
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  @include display-flex();
+  @include justify-content(center);
+  @include align-items(center);
+  background: url('images/retina_wood.png');
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.form_edit {
+    width: 340px;
+    margin: 60px auto 30px;
+    padding: 15px;
+    position: relative;
+
+    background: #fffaf6;
+    border-radius: 4px;
+    color: #7e7975;
+    box-shadow:
+        0 2px 2px rgba(0,0,0,0.2),        
+        0 1px 5px rgba(0,0,0,0.2),        
+        0 0 0 12px rgba(255,255,255,0.4);
+}
+
+.make_right{
+float:right;
+}
+	</style>
+  </head>
+  <body>
+    <div class="container">
+
+  <form class="form_edit">    
+	<div class="form-group">
+		<a href="listArticles.html" class="btn btn-block btn-primary btn-danger">All Articles Record <span class=" make_right glyphicon glyphicon-list-alt "></span></a>
+	</div>
+
+	<div class="form-group">
+		<a href="#" onclick="Ed_fora.clearData()" class="btn btn-block btn-primary btn-danger">Clear All Records <span class="make_right glyphicon glyphicon-trash"></span></a>
+	</div>
+	<div class="form-group">
+		<a href="#" onclick="Ed_fora.createTestData()" class="btn btn-block btn-primary btn-danger">Fetch Data From Web API <span class=" make_right glyphicon glyphicon-th-list"></span></a>
+	</div>
+
+  </form>
+</div>
+
+  
+</html>

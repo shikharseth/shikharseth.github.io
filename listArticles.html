@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  <title>Patient Information Web</title>
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	  	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.min.css">
+
+	  	<link rel="stylesheet" type="text/css" href="css/style_new.css">
+    <script src="src/ctrl/initialize.js"></script>
+    <script src="src/model/Article.js"></script>
+    <script src="src/view/listArticles.js"></script>
+	    <script src="js/jquery-3.1.1.min.js"></script>
+			    <script src="js/bootstrap.min.js"></script>
+
+
+    <script>'use strict';</script>
+    <script>
+		 window.addEventListener("load", dynamic_div);
+
+     window.addEventListener("load", load_this);
+
+	  
+	 function  load_this() {
+	 
+    //var tableBodyEl = document.querySelector("table#articles>tbody");
+	var el1 = document.querySelectorAll("h2.title1");
+	var el2 = document.querySelectorAll(".author_name");
+	var el8 = document.querySelector("#new_author");
+
+	var el3 = document.querySelectorAll(".id_name");
+	var el4 = document.querySelectorAll(".url_name");
+	var el5 = document.querySelectorAll(".points_name");
+	var el6 = document.querySelectorAll(".comments_name");
+	var el7 = document.querySelectorAll(".created_date");
+
+   var keys=[], key="", row={}, i=0, y= {};
+
+    Ed_fora.loadAll();
+    keys = Object.keys( Ed_fora.instances);
+	//y=keys[0];
+	//el1.textContent  = Ed_fora.instances[y].title;
+	//el1 = x
+	//alert(el1);
+	 //alert("hi");
+	 if(keys==0 || keys =="NULL"){
+	 window.location = "index.html";
+	 alert("Create Sample Data first");
+}
+	 else{
+	 
+    for (i=0; i < keys.length; i++) {
+      key = keys[i];
+	  
+	  el1[i].textContent = Ed_fora.instances[key].title;
+	  el2[i].textContent = Ed_fora.instances[key].author;
+		  el3[i].textContent = Ed_fora.instances[key].id;
+		  el4[i].textContent = Ed_fora.instances[key].url;
+		  el5[i].textContent = Ed_fora.instances[key].num_points + 'points';
+		  el6[i].textContent = Ed_fora.instances[key].num_comments + ' comment';
+		  el7[i].textContent = Ed_fora.instances[key].created_at;
+	  el8[i].textContent = Ed_fora.instances[key].author;
+
+	  /* row = tableBodyEl.insertRow();
+	  //x=Ed_fora.instances[0].id;
+	  //console.log(x);
+      row.insertCell(-1).textContent = Ed_fora.instances[key].id;      
+      row.insertCell(-1).textContent = Ed_fora.instances[key].title;  
+      row.insertCell(-1).textContent = Ed_fora.instances[key].url;
+      row.insertCell(-1).textContent = Ed_fora.instances[key].num_points;
+      row.insertCell(-1).textContent = Ed_fora.instances[key].num_comments;
+      row.insertCell(-1).textContent = Ed_fora.instances[key].author;
+      row.insertCell(-1).textContent = Ed_fora.instances[key].created_at;
+*/
+	  }
+	  }
+  };
+  
+  
+  function dynamic_div(){
+  var htmlElements = "";
+for (var i = 0; i < 100; i++) {
+   htmlElements += '<div id="new_author">';
+
+   htmlElements += '<div class="post-img">';
+          htmlElements +=               ';<a href="detail.html">';
+                          htmlElements +=   '<img src="images/img-1.jpg" alt="">';
+                         htmlElements +='</a>'
+                     htmlElements +=' </div>';
+
+                     htmlElements += '<div class="post-content" style="margin:35px;">';
+                         htmlElements += '<span class="bookmark id_name"></span>';
+
+                         htmlElements += '<h2 class="title1"><a href="detail.html"></a> </h2> <span class="url_name make_url_style">heloo</span>';
+
+                         htmlElements += '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>';
+
+                         htmlElements += '<ul class="post-meta">';
+                             htmlElements += '<li>';
+                                 htmlElements += '<a href="#">';
+                                    htmlElements += ' <img src="images/img-1.png" alt="">';
+                                     htmlElements += '<span class="author_name text-uppercase"></span>';
+                                 htmlElements += '</a>';
+                             htmlElements += '</li>';
+                            htmlElements +=' <li class="points_name"><a href="#"></a></li>';
+                           htmlElements += ' <li class="comments_name"><a href="#"><i class="fa fa-clock-o"></i></a></li>';
+                           htmlElements += ' <li class="created_date"><a href="#"><i class="fa fa-clock-o"></i> </a></li>';
+
+						   htmlElements += '</ul>';
+                  htmlElements +='   </div>';
+				                    htmlElements +='   </div>';
+
+}
+var container = document.getElementById("mention_here");
+container.innerHTML = htmlElements;
+};
+
+function make_increasing(){
+	
+};
+
+    </script>
+	<style>
+	.make_url_style{
+	font-size:14px;
+	color:#f4d942;
+	font-family:inherit;
+	}
+	
+	</style>
+  </head>
+  <body>
+  <!--template--->
+  <section class="ps-list">
+
+            <div class="header-ps">
+
+               
+
+                <div class="bar-ps"><i class="fa fa-bars"></i></div>
+
+            </div>
+            
+            <div class="sidebar sidebar-fixed">
+                
+                <div class="sidebar-wrap ps-container ps-active-y" id="sidebar-scroll">
+
+                 
+                    
+                    <!-- PERSONAL DESCRIPTION -->
+                    <div class="ps-desc">
+                        <h2>EdFora</h2>
+                        <p>
+                            Education For All
+                        </p>
+                    </div>
+                    <!-- END PERSONAL DESCRIPTION -->
+
+                    <!-- PERSONAL CATEGORY -->
+                    <ul class="ps-cat ps-cat-1">
+                        <li><a href="index.html">Back to home</a></li>
+                       
+                    </ul>
+					<ul class="ps-cat ps-cat-1">
+                        <li><a href="#" onclick="make_increasing()">Increasing Order</a></li>
+                       
+                    </ul>
+					
+                    <!-- END PERSONAL CATEGORY -->
+                    
+                    <!-- PERSONAL SOCIAL -->
+                    <div class="ps-social">
+                        <a href="#" class="_1"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="_2"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" class="_3"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="_4"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                    <!-- END PERSONAL SOCIAL -->
+
+                <div class="ps-scrollbar-x-rail" style="width: 375px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 638px; display: inherit; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 547px;"></div></div></div>
+
+                <!-- BACKGROUND -->
+                <div class="bg-static bg-6"></div>
+                <!-- END BACKGROUND -->
+
+                <!-- OVERLAY -->
+                <div class="bg-overlay"></div>
+                <!-- END OVERLAY -->
+
+            </div>
+            <!-- END PERSONAL SIDEBAR -->
+			<form id="live-search" action="" class="styled" method="post">
+    <fieldset>
+        <input type="text" class="text-input" id="filter" value="" />
+        <span id="filter-count"></span>
+    </fieldset>
+</form>
+            <!-- PERSONAL LIST -->
+            <div class="list-cn">
+				
+				
+                <!-- LIST ITEM -->
+                <div class="post-list" id="mention_here">
+
+                   
+
+                </div>
+				
+                
+            </div>
+            <!-- PERSONAL LIST -->
+
+        </section>
+  
+  
+  
+  <!-----end---->
+  
+  
+  
+  
+
+
+   <script>
+   $(document).ready(function(){
+    $("#filter").keyup(function(){
+ 
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(), count = 0;
+ 
+        // Loop through the comment list
+        $(".author_name").each(function(){
+ 
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $("").fadeOut();
+ 
+            // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).show();
+                count++;
+            }
+        });
+ 
+        // Update the count
+        var numberItems = count;
+        $("#filter-count").text("Number of Comments = "+count);
+    });
+});
+    $("#back").click(function(){
+    document.location = 'index.html';
+});
+
+  </script>
+
+  </body>
+</html>
